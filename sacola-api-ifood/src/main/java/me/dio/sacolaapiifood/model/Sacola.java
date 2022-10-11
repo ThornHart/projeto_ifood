@@ -15,16 +15,16 @@ import java.util.List;
 @Builder
 @Data
 @Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) // Evitar dar erro no hibernate por causa do Lazy
 @NoArgsConstructor
 public class Sacola {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY, optional = false) // Cliente pode ter varias sacola -- lazy fetch retorna o client apenas quando necessario
+    @JsonIgnore // Evitar erros de serialização
     private Cliente cliente;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL) // Uma sacola para varios itens -- Cascade -PERSIST, MERGE, REMOVE e REFRESH de Sacola para Itens
     private List<Item> itens;
     private Double valorTotal;
     @Enumerated

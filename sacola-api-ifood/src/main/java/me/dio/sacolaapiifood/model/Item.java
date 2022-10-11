@@ -16,7 +16,7 @@ import javax.persistence.*;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @NoArgsConstructor
 public class Item {
-    @Id
+    @Id // Primary key
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @OneToOne

@@ -10,7 +10,7 @@ import javax.persistence.Embeddable;
 @AllArgsConstructor
 @Builder
 @Data
-@Embeddable
+@Embeddable // Classe abstrata que terá os atributos embedded por outra table
 @NoArgsConstructor
 public class Endereco {
     private String cep;

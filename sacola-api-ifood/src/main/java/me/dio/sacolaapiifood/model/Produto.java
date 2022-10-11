@@ -16,12 +16,12 @@ import javax.persistence.*;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @NoArgsConstructor
 public class Produto {
-    @Id
+    @Id // Primary key
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
     private double valorUnitario;
-    @Builder.Default
+    @Builder.Default // Indica que o true é default
     private Boolean disponivel = true;
     @ManyToOne
     @JsonIgnore
