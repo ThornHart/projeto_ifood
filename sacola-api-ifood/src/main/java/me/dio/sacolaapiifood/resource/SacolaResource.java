@@ -1,5 +1,6 @@
 package me.dio.sacolaapiifood.resource;
 
+import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import me.dio.sacolaapiifood.model.Item;
 import me.dio.sacolaapiifood.model.Sacola;
@@ -7,6 +8,7 @@ import me.dio.sacolaapiifood.resource.dto.ItemDto;
 import me.dio.sacolaapiifood.service.SacolaService;
 import org.springframework.web.bind.annotation.*;
 
+@Api(value="/ifood-devweek/sacolas")
 @RestController // Indicar que a classe possui os endpoints
 @RequestMapping("/ifood-devweek/sacolas") // Definir como sera escrito os endpoints
 @RequiredArgsConstructor
