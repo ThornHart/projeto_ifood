@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class SacolaResource {
     private final SacolaService sacolaService;
 
-    @PostMapping //POST
+    @PostMapping("/incluirItem")//POST
     public Item incluirItemNaSacola(@RequestBody /*Indicar que a info vem do corpo da requisicao*/ ItemDto itemDto) {
         return sacolaService.incluirItemNaSacola(itemDto);
     }
@@ -28,5 +28,10 @@ public class SacolaResource {
     @PatchMapping("/fecharSacola/{sacolaId}")//PATCH
     public Sacola fecharSacola(@PathVariable("sacolaId") Long sacolaId,@RequestParam("formaPagamento") int formaPagamento) {
         return sacolaService.fecharSacola(sacolaId, formaPagamento);
+    }
+
+    @DeleteMapping("/excluirSacola/{sacolaId}")//DELETE
+    public Sacola excluirSacola(@PathVariable("sacolaId") Long sacolaId) {
+        return sacolaService.excluirSacola(sacolaId);
     }
 }

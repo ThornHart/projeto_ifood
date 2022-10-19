@@ -68,9 +68,9 @@ public class SacolaServiceImpl implements SacolaService {
 
     @Override
     public Sacola verSacola(Long id) {
-        return sacolaRepository.findById(id).orElseThrow(
+         return sacolaRepository.findById(id).orElseThrow(
                 () -> {
-                    throw new RuntimeException("Essa sacola nao existe");
+                   throw new RuntimeException("Essa sacola nao existe");
                 }
         );
     }
@@ -88,4 +88,13 @@ public class SacolaServiceImpl implements SacolaService {
         return sacolaRepository.save(sacola);
 
     }
-}
+
+    @Override
+    public Sacola excluirSacola(Long id) {
+        Sacola sacola = verSacola(id);
+        sacolaRepository.delete(sacola);
+        return sacola;
+    }
+
+    }
+
